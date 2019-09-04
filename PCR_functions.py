@@ -136,8 +136,8 @@ def delta_delta_ct(input_df, calibrator):
 def fold_change(input_df):
 
     input_df['FC'] = input_df['ddCt'].apply(lambda x: 2 ** (x * -1))
-    input_df['FC Upper'] = input_df.apply(lambda x: 2 ** ((x['ddCt'] + x['SEM']) * -1), axis=1)
-    input_df['FC lower'] = input_df.apply(lambda x: 2 ** ((x['ddCt'] - x['SEM']) * -1), axis=1)
+    input_df['FC Lower'] = input_df.apply(lambda x: 2 ** ((x['ddCt'] + x['SEM']) * -1), axis=1)
+    input_df['FC Upper'] = input_df.apply(lambda x: 2 ** ((x['ddCt'] - x['SEM']) * -1), axis=1)
 
     return input_df
 
@@ -152,4 +152,3 @@ def yes_no(question):
         return True
     else:
         return False
-
